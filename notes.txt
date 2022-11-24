@@ -1,0 +1,42 @@
+3.READ ABOUT THE DIFFERENCE BETWEEN WINDOW,SCREEN AND DOCUMENT IN JAVASCRIPT...?
+
+Briefly, with more detail below,
+
+* window is the execution context and global object for that context's JavaScript
+* screen describes the physical display's full screen         
+* document contains the DOM, initialized by parsing HTML             
+
+1.window
+
+Each browser tab has its own top-level window object. 
+Each <iframe> (and deprecated <frame>) element has its own window object too, nested within a parent window.
+
+setTimeout() and setInterval() binding event handlers to a timer
+location giving the current URL
+history with methods back() and forward() giving the tab's mutable history
+navigator describing the browser software
+
+2.screen
+
+The window object also has a screen object with properties describing the physical display:
+
+screen properties width and height are the full screen
+screen properties availWidth and availHeight omit the toolbar
+
+3.document
+
+Each window object has a document object to be rendered. 
+These objects get confused in part because HTML elements are added to the global object when assigned a unique id.
+E.g., in the HTML snippet
+
+<body>
+  <p id="holyCow"> This is the first paragraph.</p>
+</body>
+
+the paragraph element can be referenced by any of the following:
+
+window.holyCow or window["holyCow"]
+document.getElementById("holyCow")
+document.querySelector("#holyCow")
+document.body.firstChild
+document.body.children[0]
